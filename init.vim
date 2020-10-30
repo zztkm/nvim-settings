@@ -5,7 +5,6 @@ set shiftwidth=4
 " File Explorr setting
 let g:netrw_liststyle = 3
 
-
 if &compatible    
   set nocompatible               " Be iMproved    
 endif    
@@ -41,6 +40,7 @@ if dein#check_install()
 endif
 
 " Required:                  
+filetype off
 filetype plugin indent on                                   
 
 syntax enable
@@ -54,8 +54,33 @@ colorscheme tokyonight
 " vim-lsp関連の設定
 " そのうちtomlファイルに書く
 " 参考本: https://mattn.kaoriya.net/software/vim/20191231213507.htm let g:lsp_diagnostics_enabled = 1
+if empty(globpath(&rtp, 'autoload/lsp.vim'))
+  finish
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> <f2> <plug>(lsp-rename)
+  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
+
+let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
-let g:asyncomplete_auto_popup = 1
+" let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 0
-let g:asyncomplete_popup_delay = 200
-" let g:lsp_text_edit_enabled = 1
+let g:asyncomplete_popup_delay = 1000
+let g:lsp_text_edit_enabled = 1
+
+set completeopt+=menuone
+
+" python3を読み込む
+let g:python3_host_prog = system('which python3')
+

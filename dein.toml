@@ -20,6 +20,15 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 repo = 'prabirshrestha/vim-lsp'
 
 [[plugins]]
+repo = 'mattn/vim-lsp-icons'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip' 
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
+
+[[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
@@ -28,4 +37,7 @@ hook_add = '''
 	let g:airline#extensions#branch#enabled = 1
 	let g:airline#extensions#tabline#enabled = 1
 '''
+
+# [[plugins]]
+# repo = 'Shougo/defx.nvim'
 
