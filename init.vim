@@ -9,41 +9,41 @@ set clipboard+=unnamedplus
 " File Explorr setting
 let g:netrw_liststyle = 3
 
-if &compatible    
-  set nocompatible               " Be iMproved    
-endif    
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
 if (exists('+colorcolumn'))
     set colorcolumn=80
     highlight ColorColumn ctermbg=9
 endif
 
-" Pluginディレクトリのパス    
-let s:dein_dir = expand('~/.cache/dein')    
-" dein.vimのパス    
-let s:dein_repo_dir = s:dein_dir .  '/repos/github.com/Shougo/dein.vim'    
-" tomlのディレクトリへのパス    
-let s:toml_dir = expand('~/.config/nvim')    
+" Pluginディレクトリのパス
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vimのパス
+let s:dein_repo_dir = s:dein_dir .  '/repos/github.com/Shougo/dein.vim'
+" tomlのディレクトリへのパス
+let s:toml_dir = expand('~/.config/nvim')
 
-execute 'set runtimepath^=' . s:dein_repo_dir    
+execute 'set runtimepath^=' . s:dein_repo_dir
 
-if dein#load_state(s:dein_dir)    
-  call dein#begin(s:dein_dir)    
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-  " 起動時に読み込むプラグイン群のtoml    
+  " 起動時に読み込むプラグイン群のtoml
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
 
   " 利用時に読み込むプラグインのtoml
   call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
 
-  " Required:               
-  call dein#end()           
-  call dein#save_state()    
-endif                        
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
-" If you want to install not installed plugins on startup.    
-if dein#check_install()                                       
-  call dein#install()      
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
 endif
 
 " plugin remove check
@@ -54,7 +54,7 @@ if len(s:removed_plugins) > 0
 endif
 
 filetype off
-filetype plugin indent on                                   
+filetype plugin indent on
 
 syntax enable
 set termguicolors
@@ -97,3 +97,5 @@ set completeopt+=menuone
 " python3を読み込む
 let g:python3_host_prog = system('which python3')
 
+" アメリカ大統領選
+" set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\[%{usa_president_2020#status()}\]\ %P

@@ -2,6 +2,9 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'mattn/vim-goimports'
+
+[[plugins]]
 repo = 'joshdick/onedark.vim'
 
 [[plugins]]
@@ -62,3 +65,8 @@ hook_add = '''
 	let g:previm_open_cmd = 'open -a Google\ Chrome'
 '''
 
+[[plugins]]
+repo = 'ryym/vim-viler'
+
+[[plugins]]
+repo = 'mattn/vim-usa_president_2020'
