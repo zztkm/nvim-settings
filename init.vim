@@ -13,6 +13,11 @@ if &compatible
   set nocompatible               " Be iMproved    
 endif    
 
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
+
 " Pluginディレクトリのパス    
 let s:dein_dir = expand('~/.cache/dein')    
 " dein.vimのパス    
@@ -20,10 +25,8 @@ let s:dein_repo_dir = s:dein_dir .  '/repos/github.com/Shougo/dein.vim'
 " tomlのディレクトリへのパス    
 let s:toml_dir = expand('~/.config/nvim')    
 
-" Required:    
 execute 'set runtimepath^=' . s:dein_repo_dir    
 
-" Required:    
 if dein#load_state(s:dein_dir)    
   call dein#begin(s:dein_dir)    
 
@@ -43,7 +46,13 @@ if dein#check_install()
   call dein#install()      
 endif
 
-" Required:                  
+" plugin remove check
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
+
 filetype off
 filetype plugin indent on                                   
 

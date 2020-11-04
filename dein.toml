@@ -23,7 +23,7 @@ repo = 'prabirshrestha/vim-lsp'
 repo = 'mattn/vim-lsp-icons'
 
 [[plugins]]
-repo = 'hrsh7th/vim-vsnip' 
+repo = 'hrsh7th/vim-vsnip'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
@@ -38,6 +38,11 @@ hook_add = '''
 	let g:airline#extensions#tabline#enabled = 1
 '''
 
-# [[plugins]]
-# repo = 'Shougo/defx.nvim'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
