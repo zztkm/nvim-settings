@@ -2,6 +2,10 @@ set number
 set tabstop=4
 set shiftwidth=4
 
+" マウスとクリップボードの設定
+set mouse=a
+set clipboard+=unnamedplus
+
 " File Explorr setting
 let g:netrw_liststyle = 3
 
