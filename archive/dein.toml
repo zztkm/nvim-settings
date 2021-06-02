@@ -2,7 +2,7 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'mattn/vim-goimports'
+repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'joshdick/onedark.vim'
@@ -25,11 +25,11 @@ repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo = 'mattn/vim-lsp-icons'
 
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip'
+#[[plugins]]
+#repo = 'hrsh7th/vim-vsnip'
 
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
+#[[plugins]]
+#repo = 'hrsh7th/vim-vsnip-integ'
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
@@ -67,6 +67,23 @@ hook_add = '''
 
 [[plugins]]
 repo = 'ryym/vim-viler'
+hook_add = '''
+	function! s:configure_viler_buffer() abort
+	  nnoremap <buffer><nowait> <CR> :<C-u>call viler#open_cursor_file('edit')<CR>
+	  nmap <buffer><nowait> <C-l> <Plug>(viler-open-file)
+	  nmap <buffer><nowait> <C-h> <Plug>(viler-cd-up)
+	  nmap <buffer><nowait> t <Plug>(viler-toggle-tree)
+	endfunction
+'''
 
 [[plugins]]
-repo = 'mattn/vim-usa_president_2020'
+repo = 'lambdalisue/fern.vim'
+
+[[plugins]]
+repo = 'antoinemadec/FixCursorHold.nvim'
+hook_add = '''
+	let g:cursorhold_updatetime = 100
+'''
+
+[[plugins]]
+repo = 'zztkm/nipo.vim'
