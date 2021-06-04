@@ -1,5 +1,6 @@
 set clipboard+=unnamedplus
 
+
 if (exists('+colorcolumn'))
     set colorcolumn=80
     highlight ColorColumn ctermbg=9
@@ -34,6 +35,8 @@ set smartcase
 "
 " タブの画面上での幅
 set tabstop=4
+set shiftwidth=4
+
 " タブをスペースに展開しない (expandtab:展開する)
 set noexpandtab
 " 自動的にインデントする (noautoindent:インデントしない)
@@ -78,7 +81,6 @@ set title
 "
 " バックアップファイルを作成しない (次行の先頭の " を削除すれば有効になる)
 set nobackup
-
 
 "---------------------------------------------------------------------------
 " ファイル名に大文字小文字の区別がないシステム用の設定:
