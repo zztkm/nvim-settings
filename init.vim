@@ -122,7 +122,6 @@ call minpac#add('prabirshrestha/asyncomplete.vim')
 call minpac#add('prabirshrestha/asyncomplete-lsp.vim')
 call minpac#add('prabirshrestha/vim-lsp')
 call minpac#add('mattn/vim-lsp-settings')
-call minpac#add('mattn/vim-goimports')
 
 call minpac#add('vim-airline/vim-airline')
 
